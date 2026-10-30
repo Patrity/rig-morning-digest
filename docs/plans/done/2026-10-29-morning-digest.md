@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-10-30
 ---
 
 # Morning digest
@@ -77,3 +78,20 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Digest types: DigestRow + readNight signature | — | claude-code · opus-5.5 · low | 2026-10-30 |
+| 2 | Run log reader | #1 | claude-code · opus-5.5 · low | 2026-10-30 |
+| 3 | Digest page: GET /digest/:night | #1 | claude-code · sonnet-5.5 · default | 2026-10-30 |
+| 4 | Digest JSON: GET /api/digest/:night | #1 | claude-code · haiku-5.5 · default | 2026-10-30 |
+| 5 | Board links each night to its digest | #1 | claude-code · haiku-5.5 · default | 2026-10-30 |
+| 6 | Route tests for digest page and JSON | #3, #4 | claude-code · sonnet-5.5 · default | 2026-10-30 |
+| 7 | Preview for review | #2–#6 | claude-code · opus-5.5 · low | 2026-10-30 |
+| 8 | Remove the lane marker from the preview | #7 | claude-code · opus-5.5 · low | 2026-10-30 |
+
+#7 was closed when the link went out and reopened: its done condition is the reviewer's look,
+not the send. The preview lives in a separate repo (Patrity/rig-previews) whose history was
+replaced by one unmarked commit, so the marked copy is not kept in git either (ADR 0003).
